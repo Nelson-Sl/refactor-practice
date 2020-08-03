@@ -17,27 +17,13 @@ public class NumberCruncher {
         return new int[] {even, odd};
     }
 
-    public int countOdd() {
-        int count = 0;
+    public int[] countPositiveAndNegative() {
+        int positive = 0;
+        int negative = 0;
         for (int number : numbers) {
-            if (number % 2 == 1) count++;
+            if (number >= 0) positive++;
+            else negative++;
         }
-        return count;
-    }
-
-    public int countPositive() {
-        int count = 0;
-        for (int number : numbers) {
-            if (number >= 0) count++;
-        }
-        return count;
-    }
-
-    public int countNegative() {
-        int count = 0;
-        for (int number : numbers) {
-            if (number < 0) count++;
-        }
-        return count;
+        return new int[] {positive, negative};
     }
 }
