@@ -7,15 +7,16 @@ public class Direction {
         this.direction = direction;
     }
 
+    DirectionType expectedDirection = DirectionType.NORTH;
     public Direction turnRight() {
-        switch (direction) {
-            case 'N':
+        switch (expectedDirection) {
+            case NORTH:
                 return new Direction('E');
-            case 'S':
+            case SOUTH:
                 return new Direction('W');
-            case 'E':
+            case EAST:
                 return new Direction('N');
-            case 'W':
+            case WEST:
                 return new Direction('S');
             default:
                 throw new IllegalArgumentException();
