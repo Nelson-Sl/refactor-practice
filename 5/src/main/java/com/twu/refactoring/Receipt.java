@@ -31,7 +31,7 @@ public class Receipt {
             totalCost += airConditionedPostRateCharge(totalKms, peakTimeMultiple);
         } else {
             totalCost += unAirConditionedPreRateCharge(totalKms, peakTimeMultiple);
-            totalCost += Math.max(0, totalKms - RATE_CHANGE_DISTANCE) * POST_RATE_CHANGE_NON_AC_RATE * peakTimeMultiple;
+            totalCost += unAirConditionedPostRateCharge(totalKms, peakTimeMultiple);
         }
 
         return totalCost * (1 + SALES_TAX_RATE);
@@ -47,5 +47,9 @@ public class Receipt {
 
     public static double unAirConditionedPreRateCharge(int totalDistance, double peakTimeMultiple) {
         return Math.min(RATE_CHANGE_DISTANCE, totalDistance) * PRE_RATE_CHANGE_NON_AC_RATE * peakTimeMultiple;
+    }
+
+    public static double unAirConditionedPostRateCharge(int totalDistance, double peakTimeMultiple) {
+        return Math.max(0, totalDistance - RATE_CHANGE_DISTANCE) * POST_RATE_CHANGE_NON_AC_RATE * peakTimeMultiple;
     }
 }
