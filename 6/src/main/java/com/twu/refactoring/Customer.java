@@ -34,8 +34,7 @@ public class Customer {
 			frequentRenterPoints += addFrequentRenterPoints(each);
 
 			// show figures for this rental
-			result += "\t" + each.getMovie().getTitle() + "\t"
-					+ String.valueOf(rentalAmount) + "\n";
+			result += eachRentalInfo(each,rentalAmount);
 			totalAmount += rentalAmount;
 
 		}
@@ -72,5 +71,10 @@ public class Customer {
 				&& each.getDaysRented() > 1)
 			addedFrequentRenterPoints++;
 		return addedFrequentRenterPoints;
+	}
+
+	public static String eachRentalInfo(Rental eachRental, double rentalAmount) {
+		return "\t" + eachRental.getMovie().getTitle() + "\t"
+				+ String.valueOf(rentalAmount) + "\n";
 	}
 }
