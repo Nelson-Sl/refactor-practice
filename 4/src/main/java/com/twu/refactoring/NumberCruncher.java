@@ -7,12 +7,14 @@ public class NumberCruncher {
         this.numbers = numbers;
     }
 
-    public int countEven() {
-        int count = 0;
+    public int[] countEvenAndOdd() {
+        int even = 0;
+        int odd = 0;
         for (int number : numbers) {
-            if (number % 2 == 0) count++;
+            if (number % 2 == 0) even++;
+            else if (number % 2 == 1) odd++;
         }
-        return count;
+        return new int[] {even, odd};
     }
 
     public int countOdd() {
