@@ -1,15 +1,21 @@
 package com.twu.refactoring;
 
+import javafx.scene.control.skin.TextInputControlSkin;
+
 public class Direction {
     private final char direction;
+    private final char NORTH = 'N';
+    private final char EAST = 'E';
+    private final char WEST = 'W';
+    private final char SOUTH = 'S';
+
 
     public Direction(char direction) {
         this.direction = direction;
     }
-
-    DirectionType expectedDirection = DirectionType.NORTH;
+    
     public Direction turnRight() {
-        switch (expectedDirection) {
+        switch (direction) {
             case NORTH:
                 return new Direction('E');
             case SOUTH:
@@ -25,13 +31,13 @@ public class Direction {
 
     public Direction turnLeft() {
         switch (direction) {
-            case 'N':
+            case NORTH:
                 return new Direction('W');
-            case 'S':
+            case SOUTH:
                 return new Direction('E');
-            case 'E':
+            case EAST:
                 return new Direction('N');
-            case 'W':
+            case WEST:
                 return new Direction('S');
             default:
                 throw new IllegalArgumentException();
